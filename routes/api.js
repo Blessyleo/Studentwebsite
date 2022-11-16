@@ -3,7 +3,7 @@ const router = express.Router(); //routing function
 const DATA = require('../models/student');
 
 //students full list read
-router.get('/studentlist', async (req, res) => {
+router.get('/api/studentlist', async (req, res) => {
     try {
         const list = await DATA.find()
         res.send(list);
@@ -13,7 +13,7 @@ router.get('/studentlist', async (req, res) => {
 })
 
 // single student
-router.get('/student/:id', async (req, res) => {
+router.get('/api/student/:id', async (req, res) => {
     try {
         let id = req.params.id
         const singleStudent = await DATA.findById(id);
@@ -24,7 +24,7 @@ router.get('/student/:id', async (req, res) => {
 })
 
 //student add
-router.post('/student', async (req, res) => {
+router.post('/api/student', async (req, res) => {
     try {
         console.log(req.body);
         let item = { //to switch and data fetch from front end in server
@@ -44,7 +44,7 @@ router.post('/student', async (req, res) => {
 
 
 // student delete
-router.delete('/student/:id', async (req, res) => {
+router.delete('/api/student/:id', async (req, res) => {
     try {
         //  let id = req.params.id;
         //  const deleteStudent = await DATA.findByIdAndDelete(id);
@@ -59,7 +59,7 @@ router.delete('/student/:id', async (req, res) => {
 
 // student update
 
-router.put('/student', async (req, res) => {
+router.put('/api/student', async (req, res) => {
     try {
 
         let id = req.body._id

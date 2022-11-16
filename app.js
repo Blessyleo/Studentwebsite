@@ -15,7 +15,7 @@ const path = require('path');
 app.use(express.static(path.join(__dirname + '/dist/frontend')));
 
 const api = require('./routes/api');
-app.use('/api', api);
+app.use(api);
 
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname + '/dist/frontend/index.html'));
