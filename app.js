@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const logger = require('morgan'); //for seeing api calls in terminal
-const PORT = 8524;
+const PORT = process.env.PORT || 8524;
 const app = new express();
 
 require('./middleware/MongoDB');
